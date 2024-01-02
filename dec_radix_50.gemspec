@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["you@example.com"]
 
   spec.summary = "DEC RADIX 50 encoding."
-  spec.homepage = "https://github.com/8bit-mate"
+  spec.homepage = "https://github.com/8bit-mate/dec_radix_50.rb"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.0.0"
 
