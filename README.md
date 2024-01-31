@@ -26,11 +26,13 @@ Or install it yourself as:
 
 ## Usage
 
-DECRadix50.encode(charset, string \[, replace_char = " "\]) => Array\<Integer\>
+### Encoding
+
+DECRadix50.encode(charset, string \[, replace_char\]) => Array\<Integer\>
 
 ### Arguments
 
-+ **charset**: character set, should be 40 characters long.
++ **charset**: character set, should be 40 characters long for the DEC RADIX-50. The charset string length defines the base.
 
   The gem comes with two predefined characters sets:
 
@@ -44,7 +46,7 @@ DECRadix50.encode(charset, string \[, replace_char = " "\]) => Array\<Integer\>
 
 + **string**: string to encode.
 
-+ **replace_char**: replaces unsupported characters. Default value is " " (a space).
++ **replace_char**: replaces unsupported characters in the input string. Should be included in the charset. Default value is " " (a space).
 
 ### Returns
 
@@ -57,6 +59,29 @@ require "dec_radix_50"
 
 DECRadix50.encode(DECRadix50::MK90_CHARSET, "ABCDEF")
 # => [1683, 6606]
+```
+
+### Decoding
+
+DECRadix50.decode(charset, encoded_values) => String
+
+### Arguments
+
++ **charset**: character set, should be 40 characters long for the DEC RADIX-50. The charset string length defines the base.
+
++ **encoded_values**: array of integers that represent an encoded string.
+
+### Returns
+
++ String.
+
+### Example:
+
+```ruby
+require "dec_radix_50"
+
+DECRadix50.decode(DECRadix50::MK90_CHARSET, [2092, 1015, 34_320, 3259, 8001, 29_000, 3412, 24_567, 815, 859, 0])
+=> "ALL YOUR BASE ARE BELONG TO US   "
 ```
 
 ## Development
